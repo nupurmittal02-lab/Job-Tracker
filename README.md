@@ -2,7 +2,11 @@
 
 A Chrome extension that scrapes job details from the page you're on and appends them to your Google Sheet in one click. No more copy-pasting company, title, URL, and description by hand.
 
-**Columns it fills:** Date Applied · Company · Job Title · Job URL · Type of Organization · Status · Job Description
+![The popup auto-filling a Lever job posting](screenshots/popup.png)
+
+**Fields it captures:** Company · Job Title · Job URL · Salary · Location · Job Type · Org Type · Date Applied · Status · Notes · Job Description
+
+**Built with:** Chrome Extension (Manifest V3) · vanilla JavaScript · Google Apps Script · schema.org `JobPosting` (JSON-LD) parsing
 
 ---
 
@@ -10,7 +14,7 @@ A Chrome extension that scrapes job details from the page you're on and appends 
 
 1. You're on a job posting/application page.
 2. Click the extension icon. It auto-reads the page (structured `JobPosting` data → meta tags → per-site selectors) and pre-fills the form.
-3. You glance at it, set **Type of Organization** and **Status**, tweak anything off.
+3. You glance at it, set **Org Type** and **Status**, add notes, tweak anything off.
 4. Hit **Save to Sheet** → a new row lands in your Google Sheet.
 
 The extension talks to your sheet through a tiny Google Apps Script web app you deploy once. No Google Cloud project, no API keys.
@@ -47,6 +51,12 @@ Done. Pin the extension to your toolbar, and you're ready.
 ## Notes & limits
 
 - **Auto-extraction isn't perfect.** Sites with `JobPosting` structured data (most ATS: Greenhouse, Lever, Workday, plus LinkedIn/Indeed) fill cleanly. Obscure custom career pages may only fill the URL + title — that's why the form is editable before you save.
-- **Type of Organization** is yours to pick (it's not reliably on the page). The field remembers nothing yet — it's a free-text box with common suggestions.
+- **Org Type** is yours to pick, since it's rarely on the page. It's a free-text box with common suggestions.
+- **Columns are matched by header name, not position**, so you can reorder, rename, or add columns in your sheet without touching the script.
 - **Privacy:** Data goes only to your own sheet via your own script URL. Treat that URL like a password — anyone with it can append rows.
-- Want it to also capture salary, location, or recruiter name? Those are easy to add — say the word.
+
+## Roadmap
+
+- Duplicate detection, so the same posting isn't saved twice
+- Recruiter / hiring-manager field
+- Follow-up reminders based on Date Applied
