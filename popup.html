@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Save Application</h1>
+      <button id="settingsToggle" class="icon-btn" title="Settings">⚙</button>
+    </header>
+
+    <!-- Settings panel (hidden until configured / toggled) -->
+    <section id="settings" class="panel hidden">
+      <label for="webAppUrl">Google Apps Script Web App URL</label>
+      <input id="webAppUrl" type="url" placeholder="https://script.google.com/macros/s/.../exec" />
+      <button id="saveSettings" class="secondary">Save URL</button>
+      <p class="hint">Paste the deployment URL from your Apps Script web app. See the README for the 2-minute setup.</p>
+    </section>
+
+    <!-- Main capture form -->
+    <section id="form" class="panel">
+      <label for="company">Company</label>
+      <input id="company" type="text" />
+
+      <label for="title">Job Title</label>
+      <input id="title" type="text" />
+
+      <label for="url">Job URL</label>
+      <input id="url" type="url" />
+
+      <div class="row">
+        <div class="col">
+          <label for="salary">Salary</label>
+          <input id="salary" type="text" placeholder="e.g. $150k–$185k/yr" />
+        </div>
+        <div class="col">
+          <label for="location">Location</label>
+          <input id="location" type="text" placeholder="e.g. Remote (US)" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="jobType">Job Type</label>
+          <input id="jobType" type="text" list="jobTypes" placeholder="Full-time…" />
+          <datalist id="jobTypes">
+            <option value="Full-time"></option>
+            <option value="Permanent"></option>
+            <option value="Freelance"></option>
+            <option value="Contract"></option>
+            <option value="Volunteer"></option>
+            <option value="Part-time"></option>
+            <option value="Internship"></option>
+          </datalist>
+        </div>
+        <div class="col">
+          <label for="orgType">Org Type</label>
+          <input id="orgType" type="text" list="orgTypes" placeholder="Startup…" />
+          <datalist id="orgTypes">
+            <option value="Startup"></option>
+            <option value="Scaleup"></option>
+            <option value="Enterprise"></option>
+            <option value="Nonprofit"></option>
+            <option value="Government"></option>
+            <option value="Agency"></option>
+            <option value="Consultancy"></option>
+          </datalist>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="dateApplied">Date Applied</label>
+          <input id="dateApplied" type="date" />
+        </div>
+        <div class="col">
+          <label for="status">Status</label>
+          <select id="status">
+            <option>To Apply</option>
+            <option>Applied</option>
+            <option>Phone Screen</option>
+            <option>Interview</option>
+            <option>Take-home</option>
+            <option>Offer</option>
+            <option>Rejected</option>
+            <option>Withdrawn</option>
+          </select>
+        </div>
+      </div>
+
+      <label for="notes">Notes</label>
+      <input id="notes" type="text" placeholder="Referral, recruiter name, why it caught your eye…" />
+
+      <label for="description">Job Description</label>
+      <textarea id="description" rows="5"></textarea>
+
+      <button id="save" class="primary">Save to Sheet</button>
+      <p id="msg" class="msg"></p>
+    </section>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
