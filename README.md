@@ -4,6 +4,8 @@ A Chrome extension that scrapes job details from the page you're on and appends 
 
 ![The popup auto-filling a Lever job posting](screenshots/popup.png)
 
+![Saved applications landing in Google Sheets](screenshots/sheet.png)
+
 **Fields it captures:** Company · Job Title · Job URL · Salary · Location · Job Type · Org Type · Date Applied · Status · Notes · Job Description
 
 **Built with:** Chrome Extension (Manifest V3) · vanilla JavaScript · Google Apps Script · schema.org `JobPosting` (JSON-LD) parsing
