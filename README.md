@@ -33,8 +33,6 @@ The extension talks to your sheet through a tiny Google Apps Script web app you 
 
 > The script auto-creates an `Applications` tab with headers the first time it runs, so you don't have to set up columns yourself.
 
-## Setup
-
 ### Part 2: The Chrome extension (≈1 min)
 
 1. Go to `chrome://extensions`.
